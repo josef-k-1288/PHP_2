@@ -1,6 +1,6 @@
 <?php 
 
-    $db = mysqli_connect('localhost','root','','danilovadb') or die("Connection error");
+    require "connection.php";
 
     $sql = "SELECT * FROM names";
 
@@ -12,12 +12,6 @@
     // var_dump($result);
     // echo "</pre>";
 
- 
-
-    foreach($result as $row) { // $result pretvaramo u $row
-        echo $row['name']."<hr>"; // iz $row uzimamo 1(id)
-    }
-
-    mysqli_close($db);
-
+    require "index.view.php";
 ?>
+
