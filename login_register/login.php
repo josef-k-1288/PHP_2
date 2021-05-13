@@ -3,14 +3,15 @@
 	require "connection.php";
 	$email = $_POST['email'];
 	$password = $_POST['password'];
-	$sql = "SELECT id FROM users WHERE email = '$email' AND password = 'password'";
+	$sql = "SELECT id FROM users WHERE email = '$email' AND password = '$password'";
 	$query = mysqli_query($db,$sql);
 	$id = mysqli_fetch_assoc($query)['id'];
-	if($id){
+	
+	if($id){  // ako ima korisnika u bazi posalji na index.php
 		$_SESSION['id'] = $id;
 		 header('Location: index.php');
 		
 	}else{
-		header('Location: login.view.php');
-	}
+		header('Location: login.view.php'); // ako nema vrati na login.view.php
+	} 
 ?>
