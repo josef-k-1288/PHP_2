@@ -1,14 +1,17 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
 
-    require "connection.php";
-        $sql = "SELECT humans.first_name, humans.last_name, cards.card_number 
-                FROM humans 
-                INNER JOIN cards
-                ON cards.human_id = humans.id
-                WHERE cards.human_id = 2";
-        $query = mysqli_query($db,$sql);
-        $result = mysqli_fetch_all($query);
-        var_dump($result);
-
-
-?>
+    <form action="search.php" method="GET">
+        <input type="text" name="search" placeholder="search">
+        <button type="submit">search</button>
+    </form>
+    
+</body>
+</html>
