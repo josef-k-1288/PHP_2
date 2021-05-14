@@ -7,7 +7,7 @@
 			<input type="name" name="name" placeholder="name" class="form-control"><br>
 			<input type="email" name="email" placeholder="email" class="form-control"><br>
 			<input type="password" name="password" placeholder="password" class="form-control"><br>
-			<button type="submit" class="btn btn-primary form-control">Register</button>
+			<button type="submit" name="subBtn" class="btn btn-primary form-control">Register</button>
 		</form>
 	</div>
 </div>
