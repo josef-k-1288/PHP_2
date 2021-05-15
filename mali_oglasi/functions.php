@@ -1,5 +1,6 @@
 <?php 
 	require_once "config.php";
+	session_start();
 	function db()
 	{
 		$con = mysqli_connect(HOST,USER,PASSWORD,DATABASE) or die ("Error"); // konekcija
@@ -17,5 +18,21 @@
 
 	function logUser($user)
 	{
-		dd($user);
+		session_start();
+		$_SESSION['id'] = $user['id'];
+		$_SESSION['name'] = $user['name'];
+		header("Location: oglasi.php");
 	}
+
+
+	function getAll() // funckija za uzimanje podataka iz baze
+	{
+		$sql = "SELECT oglas.id,oglas.user_id,oglas.title,oglas.category,oglas.price,oglas.text,users.name FROM oglas INNER JOIN users ON oglas.user_id = users.id";
+
+		$query = mysqli_query(db(),$sql);
+		$result = mysqli_fetch_all($query, MYSQLI_ASSOC);
+
+		return $result;
+	}
+
+	
