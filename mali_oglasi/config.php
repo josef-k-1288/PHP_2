@@ -2,5 +2,5 @@
 	define('HOST','localhost');
 	define('USER','root');
 	define('PASSWORD','');
-	define('DATABASE','malioglasi');	
+	define('DATABASE','Mali_oglasi_nova');	
  ?>
