@@ -1,14 +1,15 @@
+
 <?php require_once "partials/head.php" ?>
 <?php require_once "partials/navbar.php" ?>
 
-<?php $oglasi = getAll(); ?>
+<?php $oglasi = getCategory($_GET['cat']); ?> 
 
-<div class="conteiner">
+<div class="container">
     <div class="row">
-        <div class="col-10-offset-1">
-            <h1 class="display-4 text-center">Svi Oglasi</h1>
+        <div class="col-10 oofset-1">
+            <h3 class="display-4 text-center"><?php echo $_GET['cat'] ?></h3>
             <div class="row">
-                <?php foreach($oglasi as $oglas): ?> <!-- Prikazivanje svih oglasa -->
+            <?php foreach($oglasi as $oglas): ?> <!-- Prikazivanje svih oglasa -->
                     <div class="col-4">
                         <div class="card mb-2 mt-2">
                             <div class="card-header">
@@ -23,7 +24,7 @@
                                 </a>
                             </div>
                             <div class="card-footer">
-                                <a href="oglasi_from_user.php?name=<?php echo $oglas['name'] ?>" class="btn btn-warning btn-sm float-left">
+                                <a href="" class="btn btn-warning btn-sm float-left">
                                     <?php echo $oglas['name'];?>
                                 </a>
                                 <a href="" class="btn btn-danger btn-sm float-right">
@@ -37,4 +38,5 @@
         </div>
     </div>
 </div>
+
 <?php require_once "partials/footer.php" ?>
