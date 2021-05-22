@@ -35,4 +35,14 @@
 		return $result;
 	}
 
+	function get_all_user_ads($id) // funckija za uzimanje podataka iz oglasa koji pripadaju ulogovanom korisniku
+	{
+		$sql = "SELECT *,users.name FROM oglas INNER JOIN users ON oglas.user_id = users.id WHERE oglas.user_id = '$id'";
+
+		$query = mysqli_query(db(),$sql);
+		$result = mysqli_fetch_all($query, MYSQLI_ASSOC);
+
+		return $result;
+	}
+
 	

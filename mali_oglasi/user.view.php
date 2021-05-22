@@ -1,15 +1,30 @@
 <?php require_once "partials/head.php" ?>
+<?php 
+    if(isset($_SESSION['id'])){ // ako je korisnik logovan(ucitan id)
+        $oglasi = get_all_user_ads($_SESSION['id']);
+     
+    }else{
+        header("Location: index.php");
+    }
+
+?>
+
 <?php require_once "partials/navbar.php" ?>
 
-<?php $oglasi = getAll(); ?>
+    <div class="container">
+        <div class="row">
+            <div class="col-10 offset-1">
+                <div class="row">
+                    <div class="row-6 offset-3 mt-3 mb-5 mx-auto">
+                        <a href="" class="btn btn-info form-control">Novi oglas</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<div class="conteiner">
-    <div class="row">
-        <div class="col-10-offset-1">
-            <h1 class="display-4 text-center">Svi Oglasi</h1>
-            <div class="row">
-                <?php foreach($oglasi as $oglas): ?> <!-- Prikazivanje svih oglasa -->
-                    <div class="col-4">
+        <div class="row">
+            <?php foreach($oglasi as $oglas): ?> <!-- Prikazivanje svih oglasa -->
+                <div class="col-4">
                         <div class="card mb-2 mt-2">
                             <div class="card-header">
                                 <a href="" class="btn btn-secondary btn-sm">
@@ -18,9 +33,6 @@
                             </div>
                             <div class="card-body text-center">
                                 <h5><?php echo $oglas['title']; ?></h5>
-                                <a href="" class="btn btn-light btn-sm">
-                                    Vidi oglas
-                                </a>
                             </div>
                             <div class="card-footer">
                                 <a href="" class="btn btn-warning btn-sm float-left">
@@ -32,9 +44,12 @@
                             </div>
                         </div>
                     </div>
-                <?php endforeach; ?>
-            </div>
+            <?php endforeach?>
+
         </div>
+
     </div>
-</div>
+
+
+
 <?php require_once "partials/footer.php" ?>
