@@ -45,4 +45,17 @@
 		return $result;
 	}
 
+	function getOne($id) // funckija za prikaz oglasa u novoj stranici
+
+	{
+
+		$sql = "SELECT *,users.name FROM oglas INNER JOIN users ON oglas.user_id = users.id WHERE oglas.id = '$id'";
+
+		$query = mysqli_query(db(),$sql);
+		$result = mysqli_fetch_assoc($query);
+
+		return $result;
+
+	}
+
 	
